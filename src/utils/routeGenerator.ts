@@ -16,7 +16,7 @@ export const routeGenerator = (items: TPathRoute[]) => {
         });
       });
     }
-    console.log(acc);
+
     return acc;
   }, []);
 

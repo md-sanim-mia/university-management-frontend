@@ -3,6 +3,8 @@ import { sideberGenerator } from "../../utils/sideberGenerator";
 import { adminPaths } from "../../Routes/admin.routes";
 import { facultyPaths } from "../../Routes/faculty.route";
 import { studentPaths } from "../../Routes/students.route";
+import { useAppSelector } from "../../redux/hooks";
+import { useCurrentUser } from "../../redux/features/Auth/authSlice";
 const userRole = {
   ADMIN: "admin",
   FACULTY: "faculty",
@@ -10,9 +12,9 @@ const userRole = {
 };
 const Sidebar = () => {
   const { Sider } = Layout;
-  const role = "faculty";
+  const user = useAppSelector(useCurrentUser);
   let sideberItems;
-  switch (role) {
+  switch (user!.role) {
     case userRole.ADMIN:
       sideberItems = sideberGenerator(adminPaths, userRole.ADMIN);
       break;
@@ -28,7 +30,8 @@ const Sidebar = () => {
   }
   return (
     <Sider breakpoint="lg" collapsedWidth="0">
-      <div className="demo-logo-vertical" />
+      <h2 style={{ color: "white" }}>PH UIN</h2>
+
       <Menu
         theme="dark"
         mode="inline"
