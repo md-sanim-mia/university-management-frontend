@@ -29,7 +29,11 @@ const Sidebar = () => {
       break;
   }
   return (
-    <Sider breakpoint="lg" collapsedWidth="0">
+    <Sider
+      breakpoint="lg"
+      collapsedWidth="0"
+      style={{ height: "100vh", position: "sticky", top: "0", left: "0" }}
+    >
       <h2 style={{ color: "white" }}>PH UIN</h2>
 
       <Menu
